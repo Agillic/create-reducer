@@ -3,10 +3,10 @@
   "version": "0.0.1",
   "description": "The create reducer helper of Agillic",
   "main": "index.js",
-  "author": {
-    "name": "Bence A. Toth",
-    "email": "bence.toth@agillic.com"
-  },
+  "author": "Bence A. Toth <bence.toth@agillic.com>",
+  "contributors": [
+    "Krzysztof Czurylo <krzysztof.czurylo@agillic.com>"
+  ],
   "homepage": "https://gitlab.agillic.net/frontend/open-source/create-reducer",
   "repository": {
     "type": "git",
@@ -15,6 +15,12 @@
   "engines": {
     "node": ">=8.9.4"
   },
+  "files": [
+    "LICENSE",
+    "README.MD",
+    "HISTORY.MD",
+    "index.js"
+  ],
   "devDependencies": {
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
@@ -25,7 +31,8 @@
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-sonarjs": "^0.2.0",
     "eslint-plugin-unicorn": "^6.0.1",
-    "husky": "^1.1.2"
+    "husky": "^1.1.2",
+    "jest": "^23.6.0"
   },
   "scripts": {
     "lint": "node ./node_modules/eslint/bin/eslint.js index.js",
