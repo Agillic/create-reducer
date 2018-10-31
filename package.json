@@ -11,5 +11,13 @@
   "repository": {
     "type": "git",
     "url": "git@gitlab.agillic.net:frontend/open-source/create-reducer.git"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-transform-modules-commonjs": "^7.1.0"
+  },
+  "scripts": {
+    "build": "babel src/createReducer.js -d lib/index.js"
   }
 }
