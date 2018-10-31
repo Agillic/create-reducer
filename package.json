@@ -1,0 +1,15 @@
+{
+  "name": "@agillic/create-reducer",
+  "version": "0.1.0",
+  "description": "The create reducer helper of Agillic",
+  "main": "src/index.js",
+  "author": {
+    "name": "Bence A. Toth",
+    "email": "bence.toth@agillic.com"
+  },
+  "homepage": "https://gitlab.agillic.net/frontend/open-source/create-reducer",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.agillic.net:frontend/open-source/create-reducer.git"
+  }
+}
