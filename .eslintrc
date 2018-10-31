@@ -3,6 +3,7 @@
   "parser": "babel-eslint",
   "plugins": ["fp", "unicorn", "sonarjs"],
   "rules": {
+    "no-unused-expressions": [2, {"allowShortCircuit": true}],
     "arrow-parens": [2, "as-needed"],
     "brace-style": [2, "stroustrup"],
     "comma-dangle": [2, {
@@ -24,6 +25,13 @@
     "import/prefer-default-export": 1,
     "jsx-quotes": [2, "prefer-single"],
     "jsx-a11y/label-has-for": 1,
+    "no-multiple-empty-lines": [2, {
+      "max": 2,
+      "maxBOF": 0,
+      "maxEOF": 1
+    }],
+    "import/no-extraneous-dependencies": [2, {"devDependencies": ["**/*.stories.js", "**/*.test.js", "**/.storybook/*.js"]}],
+    "jsx-a11y/no-noninteractive-element-to-interactive-role": [0],
     "max-len": 0,
     "no-console": [2, {
       "allow": ["log", "warn", "error"]
