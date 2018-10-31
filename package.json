@@ -2,7 +2,7 @@
   "name": "@agillic/create-reducer",
   "version": "0.1.0",
   "description": "The create reducer helper of Agillic",
-  "main": "src/index.js",
+  "main": "index.js",
   "author": {
     "name": "Bence A. Toth",
     "email": "bence.toth@agillic.com"
@@ -12,12 +12,23 @@
     "type": "git",
     "url": "git@gitlab.agillic.net:frontend/open-source/create-reducer.git"
   },
+  "engines": {
+    "node": ">=8.9.4"
+  },
   "devDependencies": {
-    "@babel/cli": "^7.1.2",
-    "@babel/core": "^7.1.2",
-    "@babel/plugin-transform-modules-commonjs": "^7.1.0"
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-fp": "^2.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-sonarjs": "^0.2.0",
+    "eslint-plugin-unicorn": "^6.0.1",
+    "husky": "^1.1.2"
   },
   "scripts": {
-    "build": "babel src/createReducer.js -d lib/index.js"
+    "lint": "node ./node_modules/eslint/bin/eslint.js index.js",
+    "prepush": "npm run lint"
   }
 }

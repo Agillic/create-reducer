@@ -16,4 +16,4 @@ const createReducer = ({initialState, actions, options}) => {
   })
 }
 
-export {createReducer}
+export default createReducer
