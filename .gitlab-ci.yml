@@ -1,0 +1,36 @@
+stages:
+  - build
+  - release
+
+variables:
+  DOCKER_DRIVER: overlay2
+  npm_config_cache: /builds/frontend/open-source/create-reducer/.npm
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+test:
+  image: node:8.12-alpine
+  stage: test
+  before_script:
+    - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
+    - npm ci
+  script:
+    - npm run lint
+  except:
+    - master
+    - develop
+    - /release-\d{2}\.\d{1}/
+
+release:
+  image: node:8.12-alpine
+  stage: release
+  before_script:
+    - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
+    - npm ci
+  script:
+    - npm publish
+  only:
+    - master

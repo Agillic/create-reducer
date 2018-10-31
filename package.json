@@ -1,6 +1,6 @@
 {
   "name": "@agillic/create-reducer",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "The create reducer helper of Agillic",
   "main": "index.js",
   "author": {
