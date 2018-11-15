@@ -1,15 +1,26 @@
 stages:
+  - build
   - test
   - release
 
 variables:
   DOCKER_DRIVER: overlay2
-  npm_config_cache: /builds/frontend/open-source/create-reducer/.npm
+  npm_config_cache: /builds/frontend/open-source/relative-luminance/.npm
 
 cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths:
     - node_modules/
+
+build:
+  image: node:8.12-alpine
+  stage: build
+  before_script:
+    - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
+    - npm ci
+    - mkdir -p build
+  script:
+    - npm run build
 
 test:
   image: node:8.12-alpine
@@ -19,6 +30,7 @@ test:
     - npm ci
   script:
     - npm run lint
+    - npm run test:coverage
   except:
     - master
     - develop
@@ -31,6 +43,7 @@ release:
     - echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
     - npm ci
   script:
+    - npm run build
     - npm publish
   only:
     - master
