@@ -131,3 +131,10 @@ const myReducer = createReducer(
 )
 ```
 In the above example `simpleAction` will be applied in `setState` mode as it's the one specified in `options` for the whole reducer. However, `specialAction` will be applied in `replaceState` mode, since it has not been defined as a function but rather as an object with `replaceState` property defining the state transformation.
+
+## Scripts
+
+- `npm run build:watch` will transpile all the sources on file save,
+- `npm test` will run tests in watch mode,
+- `npm run test:coverage` will run tests and report coverage statistics,
+- `npm run lint` will lint the source files.
