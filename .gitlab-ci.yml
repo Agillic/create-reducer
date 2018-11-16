@@ -31,6 +31,7 @@ test:
   script:
     - npm run lint
     - npm run test:coverage
+  coverage: /All files\s*\|\s*([\d\.]+)/
   except:
     - master
     - develop
