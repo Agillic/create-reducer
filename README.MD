@@ -1,6 +1,7 @@
 # Agillic Create Reducer
 
-Make your Redux life easier using this helper!
+The `createReducer` helper makes your Redux life easier by providing an easy and maintainable way to construct reducers.
+
 Made with :heart: by Agillic
 
 ## Installation
@@ -17,21 +18,116 @@ yarn add @agillic/create-reducer
 
 ## Usage
 
-Agillic PropTypes are compatible with the standard React ones, so you can just import them and carry on with business as usual.
-
-In order to import all the validators, use:
+In order to import createReducer use:
 
 ```javascript
-import agillicPropTypes from '@agillic/prop-types'
-```
-
-or to import validators separately:
-
-```javascript
-import {nameOfValidator} from '@agillic/prop-types'
+import createReducer from '@agillic/prop-types'
 ```
 
 Or for some good old nostalgia:
 
 ```javascript
-const agillicPropTypes = require('@agillic/prop-types')
+const createReducer = require('@agillic/create-reducer')
+```
+## Syntax
+
+```javascript
+const myReducer = createReducer({initialState, actions, [mode]})
+```
+
+### Parameters
+
+- `initialState` - an object with the initial state of your reducer,
+- `actions` - an object with actions available to the reducer, either as functions or objects,
+- `options` (_optional_), an object with optional properties:
+  - `mode`, defaults to `replaceState`:
+    - `replaceState` - replace the old state with the newly defined,
+    - `setState` - to use the React-like behaviour, where the new state gets merged to the old one.
+
+### Return value
+
+`createReducer` returns a reducer function which can be directly used in `combineReducers` and other typical use cases. That's why it's so awesome!
+
+If the reducer is called with an unidentified action it will return the initial state.
+
+## Examples
+
+Consider the following `initialState` for all the following examples:
+
+```javascript
+const initialState = {
+  stringProp: 'Nice Value',
+  numberProp: 5,
+  arrayProp: [1, 'two', 3],
+  objectProp: {
+    stringProp: 'Fancy Value'
+  },
+  boolProp: false,
+  nullProp: null
+}
+```
+
+### Typical use case
+
+```javascript
+const actions = {
+  simpleAction: () => ({boolProp: true}),
+  complexAction: ({action: {newNumber, newString}}) => ({
+    numberProp: newNumber,
+    objectProp: {
+      stringProp: newString
+    }
+  })
+}
+
+const myReducer = createReducer(
+  initialState,
+  {
+    simpleAction: () => ({boolProp: true}),
+    complexAction: ({action: {newNumber, newString}}) => ({
+      numberProp: newNumber,
+      objectProp: {
+        stringProp: newString
+      }
+    })
+  },
+  options: {
+    mode: 'setState'
+  }
+)
+```
+
+In the above example, the actions are functions which specify how should the state be transformed. Note that the actions names are labels which should be passed as `type` property in action creators. The action arguments names are up to the developer to decide.
+
+### Complex use case
+
+You are not bound to the use of just one `mode` for the whole reducer. In order to mix the two, you can specify actions as objects with either `replaceState` or `setState` properties on them, which will override the `mode` set in `options` argument.
+
+```javascript
+const actions = {
+  simpleAction: () => ({boolProp: true}),
+  complexAction: ({action: {newNumber, newString}}) => ({
+    numberProp: newNumber,
+    objectProp: {
+      stringProp: newString
+    }
+  })
+}
+
+const myReducer = createReducer(
+  initialState,
+  {
+    simpleAction: () => ({boolProp: true}),
+    specialAction: {
+      replaceState: ({action: {newNumber, newString}}) => ({
+      stringProp: newString,
+      numberProp: newNumber
+    })
+    }
+  },
+  options: {
+    mode: 'setState'
+  }
+)
+```
+In the above example `simpleAction` will be applied in `setState` mode as it's the one specified in `options` for the whole reducer. However, `specialAction` will be applied in `replaceState` mode, since it has not been defined as a function but rather as an object with `replaceState` property defining the state transformation.
