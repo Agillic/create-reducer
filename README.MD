@@ -4,10 +4,10 @@
 </p>
 
 <p align="center">
-  <a href="https://gitlab.com/agillic-ci/create-reducer/commits/develop"><img alt="pipeline status" src="https://gitlab.com/agillic-ci/create-reducer/badges/develop/pipeline.svg" /></a>
+  <a href="https://gitlab.com/agillic-ci/create-reducer/commits/master"><img alt="pipeline status" src="https://gitlab.com/agillic-ci/create-reducer/badges/master/pipeline.svg" /></a>
 </p>
 <p align="center">
-  <a href="https://gitlab.com/agillic-ci/create-reducer/commits/develop"><img alt="coverage report" src="https://gitlab.com/agillic-ci/create-reducer/badges/develop/coverage.svg" /></a>
+  <a href="https://gitlab.com/agillic-ci/create-reducer/commits/master"><img alt="coverage report" src="https://gitlab.com/agillic-ci/create-reducer/badges/master/coverage.svg" /></a>
 </p>
 
 # Agillic Create Reducer
