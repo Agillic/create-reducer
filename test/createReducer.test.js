@@ -22,7 +22,7 @@ const actions = {
   complexActionWithState: ({action: {newString}, state: {objectProp}}) => ({
     objectProp: {
       ...objectProp,
-      newStringProp: newString
+      someStringProp: newString
     }
   }),
   replaceStateAction: {
@@ -90,7 +90,7 @@ describe('Create reducer unit tests', () => {
         ...initialState,
         objectProp: {
           ...initialState.objectProp,
-          newStringProp: newString
+          someStringProp: newString
         }
       }
 
@@ -153,7 +153,7 @@ describe('Create reducer unit tests', () => {
       const expectedState = {
         objectProp: {
           ...initialState.objectProp,
-          newStringProp: newString
+          someStringProp: newString
         }
       }
 

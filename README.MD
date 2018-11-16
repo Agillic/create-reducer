@@ -136,7 +136,7 @@ const myReducer = createReducer(
     complexActionWithState: ({action: {newString}, state: {objectProp}}) => ({
       objectProp: {
         ...objectProp,
-        newStringProp: newString
+        someStringProp: newString
       }
     })
   },
