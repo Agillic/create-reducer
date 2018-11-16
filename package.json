@@ -1,6 +1,6 @@
 {
   "name": "@agillic/create-reducer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The create reducer helper of Agillic",
   "main": "build/index.js",
   "author": "Bence A. Toth <bence.toth@agillic.com>",
