@@ -1,22 +1,39 @@
 {
   "name": "@agillic/create-reducer",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "The create reducer helper of Agillic",
-  "main": "index.js",
-  "author": {
-    "name": "Bence A. Toth",
-    "email": "bence.toth@agillic.com"
-  },
+  "main": "build/index.js",
+  "author": "Bence A. Toth <bence.toth@agillic.com>",
+  "contributors": [
+    "Krzysztof Czurylo <krzysztof.czurylo@agillic.com>"
+  ],
   "homepage": "https://gitlab.agillic.net/frontend/open-source/create-reducer",
   "repository": {
     "type": "git",
     "url": "git@gitlab.agillic.net:frontend/open-source/create-reducer.git"
   },
+  "license": "GPL-3.0-only",
   "engines": {
     "node": ">=8.9.4"
   },
+  "files": [
+    "LICENSE",
+    "README.MD",
+    "CHANGELOG.MD",
+    "build/"
+  ],
   "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-object-rest-spread": "^7.0.0",
+    "@babel/plugin-transform-exponentiation-operator": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
     "eslint": "^5.8.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-fp": "^2.3.0",
@@ -25,10 +42,18 @@
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-sonarjs": "^0.2.0",
     "eslint-plugin-unicorn": "^6.0.1",
-    "husky": "^1.1.2"
+    "husky": "^1.1.2",
+    "jest": "^23.6.0",
+    "mocha-each": "^1.1.0",
+    "regenerator-runtime": "^0.12.1"
   },
   "scripts": {
-    "lint": "node ./node_modules/eslint/bin/eslint.js index.js",
-    "prepush": "npm run lint"
+    "build": "babel src -d build",
+    "build:watch": "babel src -w -d build",
+    "test": "jest --watch",
+    "test:run": "jest",
+    "test:coverage": "jest --coverage",
+    "lint": "node ./node_modules/eslint/bin/eslint.js src/",
+    "prepush": "npm run lint && npm run test:run"
   }
 }
