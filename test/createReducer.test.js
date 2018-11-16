@@ -19,6 +19,12 @@ const actions = {
       stringProp: newString
     }
   }),
+  complexActionWithState: ({action: {newString}, state: {objectProp}}) => ({
+    objectProp: {
+      ...objectProp,
+      newStringProp: newString
+    }
+  }),
   replaceStateAction: {
     replaceState: ({action: {newNumber, newString}}) => ({
       stringProp: newString,
@@ -78,6 +84,20 @@ describe('Create reducer unit tests', () => {
       expect(newState).toEqual(expectedState)
     })
 
+    it('Should return correct state for complex action with state parameter', () => {
+      const newString = 'New Great Value'
+      const expectedState = {
+        ...initialState,
+        objectProp: {
+          ...initialState.objectProp,
+          newStringProp: newString
+        }
+      }
+
+      const newState = getTestReducer('setState')(undefined, {type: 'complexActionWithState', newString})
+      expect(newState).toEqual(expectedState)
+    })
+
     it('Should return correct state for replace state action', () => {
       const newNumber = 555
       const newString = 'New Amazing Value'
@@ -125,6 +145,19 @@ describe('Create reducer unit tests', () => {
       }
 
       const newState = getTestReducer('replaceState')(undefined, {type: 'setStateAction', newBool, newNull})
+      expect(newState).toEqual(expectedState)
+    })
+
+    it('Should return correct state for complex action with state parameter', () => {
+      const newString = 'New Great Value'
+      const expectedState = {
+        objectProp: {
+          ...initialState.objectProp,
+          newStringProp: newString
+        }
+      }
+
+      const newState = getTestReducer('replaceState')(undefined, {type: 'complexActionWithState', newString})
       expect(newState).toEqual(expectedState)
     })
   })

@@ -70,16 +70,6 @@ const initialState = {
 ### Typical use case
 
 ```javascript
-const actions = {
-  simpleAction: () => ({boolProp: true}),
-  complexAction: ({action: {newNumber, newString}}) => ({
-    numberProp: newNumber,
-    objectProp: {
-      stringProp: newString
-    }
-  })
-}
-
 const myReducer = createReducer(
   initialState,
   {
@@ -104,16 +94,6 @@ In the above example, the actions are functions which specify how should the sta
 You are not bound to the use of just one `mode` for the whole reducer. In order to mix the two, you can specify actions as objects with either `replaceState` or `setState` properties on them, which will override the `mode` set in `options` argument.
 
 ```javascript
-const actions = {
-  simpleAction: () => ({boolProp: true}),
-  complexAction: ({action: {newNumber, newString}}) => ({
-    numberProp: newNumber,
-    objectProp: {
-      stringProp: newString
-    }
-  })
-}
-
 const myReducer = createReducer(
   initialState,
   {
@@ -130,7 +110,29 @@ const myReducer = createReducer(
   }
 )
 ```
+
 In the above example `simpleAction` will be applied in `setState` mode as it's the one specified in `options` for the whole reducer. However, `specialAction` will be applied in `replaceState` mode, since it has not been defined as a function but rather as an object with `replaceState` property defining the state transformation.
+
+### Using previous state
+
+It is also possible to use previous state in the reducer.
+
+```javascript
+const myReducer = createReducer(
+  initialState,
+  {
+    complexActionWithState: ({action: {newString}, state: {objectProp}}) => ({
+      objectProp: {
+        ...objectProp,
+        newStringProp: newString
+      }
+    })
+  },
+  options: {
+    mode: 'setState'
+  }
+)
+```
 
 ## Scripts
 
