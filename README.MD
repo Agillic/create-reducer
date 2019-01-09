@@ -33,7 +33,7 @@ yarn add @agillic/create-reducer
 In order to import createReducer use:
 
 ```javascript
-import createReducer from '@agillic/prop-types'
+import createReducer from '@agillic/create-reducer'
 ```
 
 Or for some good old nostalgia:
