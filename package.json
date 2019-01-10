@@ -53,7 +53,11 @@
     "test": "jest --watch",
     "test:run": "jest",
     "test:coverage": "jest --coverage",
-    "lint": "node ./node_modules/eslint/bin/eslint.js src/",
-    "prepush": "npm run lint && npm run test:run"
+    "lint": "node ./node_modules/eslint/bin/eslint.js src/"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint && npm run test:run"
+    }
   }
 }
