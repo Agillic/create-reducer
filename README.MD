@@ -41,6 +41,15 @@ Or for some good old nostalgia:
 ```javascript
 const createReducer = require('@agillic/create-reducer')
 ```
+
+### NPM Scrips description
+
+- `build` - transpiles and builds project files and outputs them to the top-level `build` directory,
+- `build:watch` - as above but additionally also watches for changes in the files and rebuilds as needed,
+- `lint` - runs ESlint on all the files and outputs any warnings and errors to the console,
+- `test` - runs all the tests in watch mode,
+- `help` - shows description of the project's NPM scripts.
+
 ## Syntax
 
 ```javascript

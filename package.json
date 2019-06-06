@@ -54,10 +54,11 @@
   "scripts": {
     "build": "babel src -d build",
     "build:watch": "babel src -w -d build",
+    "lint": "node ./node_modules/eslint/bin/eslint.js src/",
     "test": "jest --watch",
+    "help": "node helpMessageScript.js",
     "test:run": "jest",
-    "test:coverage": "jest --coverage",
-    "lint": "node ./node_modules/eslint/bin/eslint.js src/"
+    "test:coverage": "jest --coverage"
   },
   "husky": {
     "hooks": {
