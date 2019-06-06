@@ -1,9 +1,11 @@
 {
   "extends": ["airbnb", "plugin:sonarjs/recommended"],
   "parser": "babel-eslint",
-  "plugins": ["fp", "unicorn", "sonarjs"],
+  "plugins": ["fp", "unicorn", "sonarjs",  "array-func", "immutable", "filenames", "react-hooks"],
   "rules": {
     "no-unused-expressions": 0,
+    "array-func/prefer-flat-map": 2,
+    "array-func/prefer-flat": 1,
     "arrow-parens": [2, "as-needed"],
     "brace-style": [2, "stroustrup"],
     "comma-dangle": [2, {
@@ -13,6 +15,7 @@
       "exports": "never",
       "functions": "ignore"
       }],
+    "filenames/match-regex": [2, "^([a-z0-9]+)([A-Z][a-z0-9]+)*\\.*(presenter|container|reducer|index|helper|async|shapes|selector)*.*$", true],
     "fp/no-arguments": 2,
     "fp/no-delete": 2,
     "fp/no-get-set": 2,
@@ -23,6 +26,7 @@
     "fp/no-proxy": 2,
     "fp/no-valueof-field": 2,
     "import/prefer-default-export": 1,
+    "immutable/no-this": 1,
     "jsx-quotes": [2, "prefer-single"],
     "jsx-a11y/label-has-for": 1,
     "no-multiple-empty-lines": [2, {
@@ -49,6 +53,7 @@
     "react/jsx-filename-extension": 0,
     "react/no-unused-prop-types": 1,
     "react/require-default-props": 0,
+    "react-hooks/rules-of-hooks": 2,
     "semi": [2, "never"],
     "sonarjs/cognitive-complexity": ["error", 15],
     "space-in-parens": [2, "never"],

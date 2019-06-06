@@ -1,6 +1,6 @@
 {
   "name": "@agillic/create-reducer",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "The create reducer helper of Agillic",
   "main": "build/index.js",
   "author": "Bence A. Toth <bence.toth@agillic.com>",
@@ -36,10 +36,14 @@
     "babel-jest": "^23.6.0",
     "eslint": "^5.11.1",
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-array-func": "^3.1.3",
+    "eslint-plugin-filenames": "^1.3.2",
     "eslint-plugin-fp": "^2.3.0",
+    "eslint-plugin-immutable": "^1.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-react-hooks": "^1.5.0",
     "eslint-plugin-sonarjs": "^0.2.0",
     "eslint-plugin-unicorn": "^6.0.1",
     "husky": "^1.3.1",
@@ -53,9 +57,12 @@
     "lint": "node ./node_modules/eslint/bin/eslint.js src/",
     "test": "jest --watch",
     "help": "node helpMessageScript.js",
-    
     "test:run": "jest",
-    "test:coverage": "jest --coverage",
-    "prepush": "npm run lint && npm run test:run"
+    "test:coverage": "jest --coverage"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint && npm run test:run"
+    }
   }
 }
