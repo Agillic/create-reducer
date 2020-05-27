@@ -5,10 +5,6 @@
   "main": "build/index.js",
   "author": "agillic",
   "homepage": "https://gitlab.agillic.net/frontend/open-source/create-reducer",
-  "repository": {
-    "type": "http",
-    "url": "https://github.com/Agillic/create-reducer.git"
-  },
   "license": "GPL-3.0-only",
   "engines": {
     "node": ">=8.9.4"
