@@ -3,14 +3,11 @@
   "version": "1.0.5",
   "description": "The create reducer helper of Agillic",
   "main": "build/index.js",
-  "author": "Bence A. Toth <bence.toth@agillic.com>",
-  "contributors": [
-    "Krzysztof Czurylo <krzysztof.czurylo@agillic.com>"
-  ],
+  "author": "agillic",
   "homepage": "https://gitlab.agillic.net/frontend/open-source/create-reducer",
   "repository": {
-    "type": "git",
-    "url": "git@gitlab.agillic.net:frontend/open-source/create-reducer.git"
+    "type": "http",
+    "url": "https://github.com/Agillic/create-reducer.git"
   },
   "license": "GPL-3.0-only",
   "engines": {
